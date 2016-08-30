@@ -1,0 +1,28 @@
+  <div class="alert alert-info col-xs-8 col-xs-offset-2" role="alert">  Personal Information: </div>
+  
+  <form class="form-horizontal col-xs-8 col-xs-offset-2">
+    <div class="form-group">
+      <label for="inputname" class="col-sm-2 control-label" style="color:white">Name: </label>
+      <div class="col-sm-10">
+        <input type="" class="form-control" id="inputname" placeholder="Fullname..." ng-model='userInfo.name'>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputcity" class="col-sm-2 control-label" style="color:white">City: </label>
+      <div class="col-sm-10">
+        <input type="" class="form-control" id="inputcity" placeholder="City..." ng-model='userInfo.city'>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputstate" class="col-sm-2 control-label" style="color:white">State: </label>
+      <div class="col-sm-10">
+        <input type="" class="form-control" id="inputstate" placeholder="State..." ng-model='userInfo.state'>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button class="btn btn-default" ng-click='saveUserInfo()'>Save</button>
+      </div>
+    </div>
+  </form>

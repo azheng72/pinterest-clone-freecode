@@ -1,0 +1,88 @@
+
+
+
+<!-- popup window -->
+<div class="modal fade bs-example-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add New Win</h4>
+      </div>
+      <div class="modal-body">
+          
+        <div class="thumbnail">
+          <img ng-src={{newUrl}} alt=""  imageonload="imageonloadFn" ng-show="imageLoadSuccess">
+          <div style="height:10vh;" ng-show="!imageLoadSuccess"><span class="label label-default" >Image url not valid</span></div>
+          <!--<img src="http://www.gettyimages.ca/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg" alt="" style='width:30vw;' ng-show="!imageLoadSuccess">-->
+        </div>
+        
+          <div class="form-group">
+            <div class="input-group">
+              <div class="input-group-addon">Snippet: </div>
+              <input type="text" class="form-control" id="exampleInputAmount" placeholder="a little description..." ng-model="snippet" >
+            </div>
+          </div>
+              
+          <div class="form-group">
+            <div class="input-group">
+              <div class="input-group-addon">Image Url: </div>
+              <input type="text" class="form-control" id="exampleInputAmount" placeholder="copy elsewhere, and paste here..." ng-model="newUrl">
+            </div>
+          </div>
+          
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="add(newUrl,snippet)" ng-show="imageLoadSuccess">Save Win</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /popup window -->
+<style type="text/css">
+  #addBtn:hover {
+    color:white;
+    background-color:purple;
+    transition:0.5s;
+  }
+</style>
+<div style='position:fixed;' class='col-xs-1'>
+    <!-- Button trigger modal -->
+    <button id='addBtn' class="btn btn-primary" style="height:90vh;" data-toggle="modal" data-target="#myModal">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </button>
+</div>
+
+
+<style type="text/css">
+    .red{
+        color:red !important;
+    }
+    .gray{
+      color:gray;
+    }
+    .grid-item {
+    width: 200px;
+    /*height: 120px;*/
+    /*float: left;*/
+    background: rgba(0,0,0,0.8);
+    border: 0px solid #333;
+    border-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+</style>
+<!--blocks-->
+<div masonry class="grid col-xs-11 col-xs-offset-1" >
+    <div class="masonry-brick grid-item thumbnail" ng-repeat="mywin in mywins track by $index" reloadItems originTop=true> 
+          <img ng-src="{{mywin.image}}" alt="...">
+          <div class="caption">
+            <p>{{mywin.snippet}}</p>    
+            <span class="glyphicon glyphicon-heart gray" aria-hidden="true" ng-class="{'red' : iLikeIt[$index]===true }" ng-click="clickLike(mywin,iLikeIt,$index)" id="likeBtn"></span>
+            <label for="likeBtn gray">{{likeCount[$index]}}</label>
+            <span class="glyphicon glyphicon-trash gray" aria-hidden="true" style='float:right;' ng-click="delete(mywin,$index)"></span>
+          </div>
+    </div>
+</div>

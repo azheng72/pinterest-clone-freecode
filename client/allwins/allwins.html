@@ -1,0 +1,35 @@
+
+
+<style type="text/css">
+    .red{
+        color:red !important;
+    }
+    .white{
+        color:white;
+    }
+    .grid-item {
+      width: 200px;
+      /*height: 120px;*/
+      /*float: left;*/
+      background: rgba(0,0,0,0.8);
+      border: 0px solid #333;
+      border-color: white;
+      border-radius: 20px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+</style>
+<!--blocks-->
+<div masonry={originTop:true} class="grid col-xs-8 col-xs-offset-2">
+    <div class="masonry-brick grid-item thumbnail" ng-repeat="allwin in allwins track by $index" > 
+        <!--<div class="thumbnail">-->
+          <img ng-src="{{allwin.image}}" alt="...">
+          <div class="caption">
+            <p class="white">{{allwin.snippet}}</p>    
+            <span class="glyphicon glyphicon-heart white" aria-hidden="true" ng-class="{'red' : iLikeIt[$index]===true }" ng-click="clickLike(allwin,iLikeIt,$index)" id="likeBtn"></span>
+            <label for="likeBtn" class="white">{{likeCount[$index]}}</label>
+            <span class="white" aria-hidden="true" style='float:right;' >{{allwin.name}}</span>
+          </div>
+        <!--</div>-->
+    </div>
+</div>
