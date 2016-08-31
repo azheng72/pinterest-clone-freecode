@@ -52,9 +52,12 @@ var AppController=['$scope','myAjax','$element','$compile','$location',function(
     myAjax.personalinfo()
     .$promise.then(function(response){
                         $scope.username=response.username;
+                        $scope.name=response.name;
                   },function(error){
                         $scope.alreadyLogin=false;
                         $location.path('/');
+                        $scope.active['home']='active'; //initialization
+
                   })
     // .then(function(){
     //       // # append DOM element <div ng-view></div> to <app></app> after 
