@@ -8,7 +8,8 @@
         color:white;
     }
     .grid-item {
-      width: 200px;
+      width: 42vw;
+      max-width:250px;
       /*height: 120px;*/
       /*float: left;*/
       background: rgba(0,0,0,0.8);
@@ -20,7 +21,7 @@
 
 </style>
 <!--blocks-->
-<div masonry={originTop:true} class="grid col-xs-8 col-xs-offset-2">
+<div masonry={originTop:true} class="grid col-sm-8 col-sm-offset-2">
     <div class="masonry-brick grid-item thumbnail" ng-repeat="allwin in allwins track by $index" > 
         <!--<div class="thumbnail">-->
           <img ng-src="{{allwin.image}}" alt="...">

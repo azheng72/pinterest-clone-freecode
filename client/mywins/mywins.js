@@ -31,8 +31,8 @@ var MywinsController=['$scope','myAjax',function($scope,myAjax){
     $scope.likeCount=[];
     
     $scope.imageonloadFn=function(x){  
-        if(!x) $scope.$apply(()=>$scope.imageLoadSuccess=false);
-        if(x) $scope.$apply(()=>$scope.imageLoadSuccess=true);
+        if(!x) $scope.$apply(function() {return $scope.imageLoadSuccess=false});
+        if(x) $scope.$apply(function() {return $scope.imageLoadSuccess=true});
         console.log(x);
     };
     
@@ -41,19 +41,22 @@ var MywinsController=['$scope','myAjax',function($scope,myAjax){
         console.log(response);
         $scope.mywins=response.mywins;
         // $scope.mywins.reverse();//recents wins load first
-        $scope.likeCount=response.mywins.map(x=>x.like.length);
-        $scope.iLikeIt=response.mywins.map(x=>x.like.includes($scope.username));
+        $scope.likeCount=response.mywins.map(function(x) {return x.like.length});
+        $scope.iLikeIt=response.mywins.map(function(x) {return x.like.includes($scope.username)});
     },function(error){
     
     });
     
     $scope.add=function(image,snippet){
+        $scope.newUrl="";
+        $scope.snippet="";
+        $scope.imageLoadSuccess=false;
         myAjax.save({category:'mywins',user:$scope.username,directive:'add'},{image:image,snippet:snippet})
         .$promise.then(function(response){
             console.log(response);
             $scope.mywins.push(response);
-            $scope.likeCount=response.mywins.map(x=>x.like.length);
-            $scope.iLikeIt=response.mywins.map(x=>x.like.includes($scope.username));
+            $scope.likeCount=response.mywins.map(function(x) {return x.like.length});
+            $scope.iLikeIt=response.mywins.map(function(x) {return x.like.includes($scope.username)});
         },function(error){
         
         });
@@ -63,8 +66,8 @@ var MywinsController=['$scope','myAjax',function($scope,myAjax){
         .$promise.then(function(response){
             console.log(response);
             $scope.mywins.splice(idx,1);
-            $scope.likeCount=response.mywins.map(x=>x.like.length);
-            $scope.iLikeIt=response.mywins.map(x=>x.like.includes($scope.username));
+            $scope.likeCount=response.mywins.map(function(x) {return x.like.length});
+            $scope.iLikeIt=response.mywins.map(function(x) {return x.like.includes($scope.username)});
         },function(error){
         
         });

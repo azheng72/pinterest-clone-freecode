@@ -15,15 +15,13 @@ var AllwinsController=['$scope','myAjax',function($scope,myAjax){
     $scope.iLikeIt=[];
     $scope.likeCount=[];
     
-    console.log($scope);
-    
     myAjax.get({category:'allwins',user:$scope.username})
     .$promise.then(function(response){
         console.log(response);
         $scope.allwins=response.allwins;
         $scope.allwins.reverse();
-        $scope.likeCount=response.allwins.map(x=>x.like.length);
-        $scope.iLikeIt=response.allwins.map(x=>x.like.includes($scope.username));
+        $scope.likeCount=response.allwins.map(function(x) {return x.like.length});
+        $scope.iLikeIt=response.allwins.map(function(x) {return x.like.includes($scope.username)});
     },function(error){
     
     });

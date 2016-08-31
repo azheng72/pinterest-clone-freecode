@@ -4,28 +4,28 @@
   <div class="container-fluid">
      <!--Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" href="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#!/home">Winterest</a>
+      <a data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="navbar-brand" href="#!/home">Winterest</a>
     </div>
 
      <!--Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li ng-class="active.allwins" ng-click="navClick('allwins')"><a href="#!/allwins">WINs </a></li>
-        <li ng-class="active.mywins" ng-click="navClick('mywins')" ng-show="alreadyLogin"><a href="#!/mywins">MyWINs </a></li>
+        <li data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" ng-class="active.allwins" ng-click="navClick('allwins')"><a href="#!/allwins">WINs </a></li>
+        <li data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" ng-class="active.mywins" ng-click="navClick('mywins')" ng-show="alreadyLogin"><a href="#!/mywins">MyWINs </a></li>
 
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li ng-class="active.setting" ng-click="navClick('setting')" ng-show="alreadyLogin"><a href="#!/setting">Setting </a></li>
-        <li ng-class="active.login" ng-click="navClick('login')" ng-show="!alreadyLogin"><a href="#!/login">Login <span class="sr-only">(current)</span></a></li>
-        <li ng-class="active.signup" ng-click="navClick('signup')" ng-show="!alreadyLogin"><a href="#!signup">Signup </a></li>
-        <li ng-class="active.logout" ng-click="navClick('logout')" ng-show="alreadyLogin"><a href='#' ng-click='logout()'>Logout </a></li>
+        <li data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" ng-class="active.setting" ng-click="navClick('setting')" ng-show="alreadyLogin"><a href="#!/setting">Setting </a></li>
+        <li data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" ng-class="active.login" ng-click="navClick('login')" ng-show="!alreadyLogin"><a href="#!/login">Login <span class="sr-only">(current)</span></a></li>
+        <li data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" ng-class="active.signup" ng-click="navClick('signup')" ng-show="!alreadyLogin"><a href="#!signup">Signup </a></li>
+        <li data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" ng-class="active.logout" ng-click="navClick('logout')" ng-show="alreadyLogin"><a href='#' ng-click='logout()'>Logout </a></li>
         <li><a href='' > {{name || username}}</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
